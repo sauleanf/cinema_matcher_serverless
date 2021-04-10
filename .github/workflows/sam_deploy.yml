@@ -1,4 +1,4 @@
-name: Serverless Unit Tests
+name: Serverless SAM Deployment
 
 on:
   push:
