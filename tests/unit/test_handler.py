@@ -21,7 +21,7 @@ def s3_bucket():
 @pytest.fixture
 def apigw_event(s3_bucket):
     return {
-        "body": json.dumps({ 'bucket': s3_bucket }),
+        "body": json.dumps({'bucket': s3_bucket}),
         "resource": "/{proxy+}",
         "requestContext": {
             "resourceId": "123456",

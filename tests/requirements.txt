@@ -1,3 +1,5 @@
 pytest
-pytest-mock
-boto3
+pytest-mock==3.5.1
+boto3==1.17.49
+moto
+freezegun==1.1.0

@@ -32,6 +32,7 @@ class Picture:
                 *GENRES,
                 'directors'
             ]
+
     def __init__(self, **kwargs):
         self.name = kwargs.get('name', None)
         self.description = kwargs.get('description', None)
