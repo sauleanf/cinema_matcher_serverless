@@ -34,3 +34,12 @@ jobs:
     - name: Run Unit Tests
       run: |
         python -m pytest tests/unit -vv
+    - name: Deploy Lambdas via SAM
+      uses: falnyr/aws-sam-deploy-action@v1.3.0
+      env:
+        TEMPLATE: 'template.yaml'
+        AWS_STACK_NAME: "IMDBScraper"
+        AWS_REGION: 'us-east-2'
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEPLOY_BUCKET: ${{ secrets.AWS_DEPLOY_BUCKET }}

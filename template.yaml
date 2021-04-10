@@ -10,29 +10,26 @@ Globals:
     Timeout: 322
 
 Resources:
-  IMDBscraperFunction:
+  IMDBScraperFunction:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: imdb_scraper/
       Handler: app.lambda_handler
       Runtime: python3.8
       Events:
-        IMDBscraper:
+        IMDBScraper:
           Type: Api
           Properties:
             Path: /imdb_scraper
             Method: get
 
 Outputs:
-  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
-  # Find out more about other implicit resources you can reference within SAM
-  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
-  IMDBscraperApi:
-    Description: "API Gateway endpoint URL for Prod stage for Hello World function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
-  IMDBscraperFunction:
-    Description: "Hello World Lambda Function ARN"
-    Value: !GetAtt IMDBscraper.Arn
-  IMDBscraperFunctionIamRole:
-    Description: "Implicit IAM Role created for Hello World function"
-    Value: !GetAtt IMDBscraperFunctionRole.Arn
+  IMDBScraperApi:
+    Description: "API Gateway endpoint URL for Prod stage for IMDB Scraper function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/IMDBScraper/"
+  IMDBScraperFunction:
+    Description: "IMDB Scraper Lambda Function ARN"
+    Value: !GetAtt IMDBScraperFunction.Arn
+  IMDBScraperFunctionIamRole:
+    Description: "Implicit IAM Role created for the function that scrapes IMDB"
+    Value: !GetAtt IMDBScraperFunctionRole.Arn
