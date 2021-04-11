@@ -1,4 +1,4 @@
-from imdb_scraper.models.director import Director
+from models.director import Director
 
 GENRES = [
     "adult",

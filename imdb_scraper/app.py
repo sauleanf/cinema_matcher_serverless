@@ -1,5 +1,5 @@
 import json
-from imdb_scraper.scraper import IMDB, IMDB_ROOT_URL
+from scraper import IMDB, IMDB_ROOT_URL
 import requests
 
 
