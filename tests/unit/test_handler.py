@@ -97,7 +97,7 @@ def mock_imdb_res(uri, *args, **kwargs):
 @patch('requests.get', side_effect=mock_imdb_res)
 @freeze_time("2020-02-22")
 def test_lambda_handler(freezer, apigw_event, s3_bucket):
-    object_name = f"imdb.csv-{datetime.now().isoformat()}"
+    object_name = f"imdb-{datetime.now().isoformat()}.csv"
     s3 = boto3.client('s3', region_name='us-east-1')
     s3.create_bucket(Bucket=s3_bucket)
 

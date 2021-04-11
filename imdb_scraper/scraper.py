@@ -20,7 +20,8 @@ def process_length(picture_soup):
 
 class IMDB:
     def __init__(self, html, **kwargs):
-        self.filename = kwargs.get('filename', 'imdb.csv')
+        self.filename = kwargs.get('filename', 'imdb')
+        self.full_path = f'/tmp/{self.filename}.csv'
         self.bucket = kwargs.get('bucket', False)
         self.main_soup = BeautifulSoup(html, "html.parser")
         self.object_name = None
@@ -29,7 +30,7 @@ class IMDB:
         self.upload_to_s3()
 
     def scrap(self):
-        with open(f'/tmp/{self.filename}', 'w+') as imdb_csv:
+        with open(self.full_path, 'w+') as imdb_csv:
             writer = csv.writer(imdb_csv)
             writer.writerow(Picture.FIELDS)
 
@@ -86,8 +87,8 @@ class IMDB:
         return picture
 
     def upload_to_s3(self):
-        self.object_name = f"{self.filename}-{datetime.now().isoformat()}"
-        res = boto3.client('s3').upload_file(f'/tmp/{self.filename}',
+        self.object_name = f"{self.filename}-{datetime.now().isoformat()}.csv"
+        res = boto3.client('s3').upload_file(self.full_path,
                                              self.bucket,
                                              self.object_name)
 
