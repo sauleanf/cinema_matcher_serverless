@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from imdb_scraper.models.picture import Picture
+from models.picture import Picture
 import boto3
 import csv
 import json

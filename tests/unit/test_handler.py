@@ -1,13 +1,14 @@
+import pytest_path_hack # noqa
 from datetime import datetime
 from freezegun import freeze_time
-from imdb_scraper import app
+import app
 from moto import mock_s3
 from unittest.mock import patch
 import boto3
 import filecmp
 import json
-import os
 import pytest
+import os
 
 
 FIXTURE_DIR = os.path.join('tests', 'unit', 'fixtures')
