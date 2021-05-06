@@ -64,7 +64,7 @@ class IMDB:
             rating=float(picture_data['aggregateRating']['ratingValue']),
             length=process_length(picture_soup),
             description=picture_data['description'],
-            published_at=picture_data['datePublished'],
+            released_at=picture_data['datePublished'],
             image=picture_data['image']
         )
 
