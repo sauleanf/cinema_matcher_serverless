@@ -37,7 +37,7 @@ class Picture:
         self.name = kwargs.get('name', None)
         self.description = kwargs.get('description', None)
         self.released_at = kwargs.get('released_at', None)
-        self.rating = kwargs.get('released_at', 0)
+        self.rating = kwargs.get('rating', 0)
         self.image = kwargs.get('image', None)
         self.length = kwargs.get('length', 0)
         self.directors = kwargs.get('directors', [])
